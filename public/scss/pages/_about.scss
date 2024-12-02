@@ -1,0 +1,313 @@
+.about-page {
+    @include box(100vw, auto);
+    overflow: hidden;
+    & > .main__header {
+        & a span {
+            color: $black-cl;
+        }
+    }
+    .title {
+        margin-top: 185px;
+        h2 {
+            @include text(44px, e-normal, 100%, 1px);
+            color: $yellow-backdrop-cl;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        p {
+            @include text(14px, Arial, 100%, 1px);
+            margin-top: 30px;
+            text-align: center;
+        }
+    }
+    .content {
+        margin-top: 50px;
+        &__banner {
+            position: relative;
+            & > .-wrapper {
+                width: 100%;
+                height: 0;
+                padding-bottom: 50%;
+                position: relative;
+                overflow: hidden;
+                & > img {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    object-fit: cover;
+                }
+            }
+            & > p {
+                margin-top: 25px;
+                @include text(14px, Arial, 50px, 1px);
+                text-align: center;
+            }
+            &::after {
+                content: '';
+                width: 1px;
+                height: 235px;
+                background: black;
+                opacity: 0.5;
+                position: absolute;
+                bottom: -275px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        &__middle {
+            margin-top: 275px;
+            @include flex();
+            & .-text,
+            & .-img {
+                width: 50%;
+            }
+
+            & .-text {
+                p {
+                    margin-top: -25px;
+                    width: 360px;
+                    text-align: left;
+                    @include text(14px, Arial, 50px, 1px);
+                }
+            }
+            & .-img {
+                & > .-wrapper {
+                    margin-top: 110px;
+                    height: 0;
+                    padding-bottom: 100%;
+                    overflow: hidden;
+                    position: relative;
+                    & > img {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+        &__ceo {
+            @include flex(center, center, column);
+            margin-top: 165px;
+            & > .-quote {
+                width: 100%;
+                p {
+                    @include text(14px, Arial, 26px, 1px);
+                    text-align: center;
+                    margin-top: -13px;
+                    text-align: center;
+                }
+            }
+            & > .-name {
+                @include flex(center, center, column);
+                margin: 45px;
+                @include text(11px, Arial, 100%, 1px);
+                font-weight: bold;
+                span {
+                    &:first-child {
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+            & > .-img {
+                @include flex(center, center);
+                position: relative;
+                & > .signature {
+                    position: absolute;
+                    bottom: -60px;
+                    right: -110px;
+                    transform: translate(-50%, -50%);
+                }
+            }
+            & > .-footer {
+                margin-top: 90px;
+                & > p {
+                    @include text(14px, Arial, 26px, 1px);
+                    max-width: 580px;
+                    margin-top: -13px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .btns {
+        margin-top: 55px;
+        margin-bottom: 140px;
+        @include flex(center, center);
+        & .-wrapper {
+            margin: 0 15px;
+        }
+    }
+
+    @include xs {
+        @include box(100vw, auto);
+        overflow: hidden;
+        & > .main__header {
+            & a span {
+                color: $black-cl;
+            }
+        }
+        .title {
+            margin-top: 100px;
+            h2 {
+                @include text(44px, e-normal, 100%, 1px);
+                color: $yellow-backdrop-cl;
+                text-transform: uppercase;
+                text-align: center;
+            }
+            p {
+                @include text(14px, Arial, 100%, 1px);
+                margin-top: 30px;
+                text-align: center;
+            }
+        }
+        .content {
+            margin-top: 50px;
+            &__banner {
+                position: relative;
+                & > .-wrapper {
+                    width: 100%;
+                    height: 0;
+                    padding-bottom: 100%;
+                    position: relative;
+                    overflow: hidden;
+                    & > img {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        object-fit: cover;
+                    }
+                }
+                & > p {
+                    margin-top: 25px;
+                    @include text(14px, Arial, 50px, 1px);
+                    text-align: justify;
+                }
+                &::after {
+                    content: '';
+                    width: 1px;
+                    height: 135px;
+                    background: black;
+                    opacity: 0.5;
+                    position: absolute;
+                    bottom: -135px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+            &__middle {
+                margin-top: 175px;
+                @include flex(flex-start, center, column);
+                & .-text,
+                & .-img {
+                    width: 100%;
+                }
+
+                & .-text {
+                    p {
+                        margin-top: -25px;
+                        width: 100%;
+                        text-align: justify;
+                        @include text(14px, Arial, 50px, 1px);
+                    }
+                }
+                & .-img {
+                    & > .-wrapper {
+                        margin-top: 0px;
+                        height: 0;
+                        padding-bottom: 100%;
+                        overflow: hidden;
+                        position: relative;
+                        & > img {
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+            &__ceo {
+                @include flex(center, center, column);
+                margin-top: 100px;
+                & > .-quote {
+                    width: 100%;
+                    p {
+                        @include text(14px, Arial, 26px, 1px);
+                        text-align: center;
+                        margin-top: -13px;
+                        text-align: center;
+                    }
+                }
+                & > .-name {
+                    @include flex(center, center, column);
+                    margin: 45px;
+                    @include text(11px, Arial, 100%, 1px);
+                    font-weight: bold;
+                    span {
+                        &:first-child {
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+                & > .-img {
+                    @include flex(center, center);
+                    width: 100%;
+                    position: relative;
+                    & > .-wrapper {
+                        width: 100%;
+                        height: 0;
+                        padding-bottom: 100%;
+                        overflow: hidden;
+                        position: relative;
+                        & > img {
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            object-fit: cover;
+                        }
+                    }
+                    & > .signature {
+                        position: absolute;
+                        bottom: -100px;
+                        right: unset;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+                & > .-footer {
+                    margin-top: 90px;
+                    & > p {
+                        @include text(14px, Arial, 26px, 1px);
+                        max-width: 580px;
+                        margin-top: -13px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        .btns {
+            margin-top: 55px;
+            margin-bottom: 140px;
+            @include flex(center, center);
+            & .-wrapper {
+                margin: 0 15px;
+            }
+        }
+    }
+}

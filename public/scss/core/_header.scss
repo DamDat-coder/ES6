@@ -1,0 +1,113 @@
+.header {
+    width: 100vw;
+    height: 70px;
+    background: $blue-cl;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+
+    visibility: hidden;
+    opacity: 0;
+    @include transition(0.4s);
+    .container-fluid {
+        height: 100%;
+    }
+    &.--active {
+        visibility: visible;
+        opacity: 1;
+        @include transition(0.4s);
+    }
+    // Responsive
+    @include xs {
+        display: none;
+    }
+}
+
+.detail-header {
+    width: 100vw;
+    height: 100px;
+    background: $white-cl;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    & > .secondary-container {
+        height: 100%;
+    }
+
+    &__wrapper {
+        @include box(100%);
+        @include flex(flex-end, center);
+        position: relative;
+        & .--logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__back {
+        @include flex(flex-end, center);
+        & > span {
+            @include text(11px, Arial, normal, normal);
+            text-transform: uppercase;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+        & > i {
+            @include flex(flex-end, center);
+            width: 20px;
+        }
+    }
+
+    // Responsive
+    @include xs {
+        display: none;
+    }
+}
+
+.detail-header {
+    width: 100vw;
+    height: 100px;
+    background: $white-cl;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    & > .container {
+        height: 100%;
+        padding: 0 25px;
+    }
+
+    &__wrapper {
+        @include box(100%);
+        @include flex(flex-end, center);
+        position: relative;
+    }
+
+    &__back {
+        @include flex(flex-end, center);
+        & > span {
+            @include text(11px, Arial, normal, normal);
+            text-transform: uppercase;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+        & > i {
+            @include flex(flex-end, center);
+            width: 20px;
+        }
+    }
+
+    // Responsive
+    @include xs {
+        display: none;
+    }
+}

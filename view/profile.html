@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Furnitown</title>
+  <link rel="icon" href="./model/../public/img/favicon.ico" />
+  <meta name="title" content="" />
+  <meta name="description" content="" />
+  <!-- meta facebook -->
+  <meta property="og:locale" content="vi" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Trang chủ" />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:image" content="" />
+
+  <link rel="stylesheet" href="../public/dest/fonts.css" />
+  <link rel="stylesheet" href="../public/dest/style.min.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container-fluid">
+      <nav>
+        <ul id="topbar-menu" >
+          <li><a class="--item" href="?page/home">furnitown</a></li>
+          <li>
+            <a class="--item" href="?page/products">sản phẩm</a>
+          </li>
+          <li>
+            <a class="--item" href="./view/services.html">dịch vụ</a>
+          </li>
+          <li>
+            <a class="--logo" href="?page/home">
+              <img src="./public/img/logo-icon-white.png" alt="logo" />
+            </a>
+          </li>
+          <li>
+            <a class="--item" href="./view/projects.html">dự án</a>
+          </li>
+          <li><a class="--item" href="./view/news.html">tin tức</a></li>
+
+          <!-- <li>
+            <a class="--item" href="?user/login">đăng nhập</a>
+          </li> -->
+          <!-- <li><a class="--item" href="?user/profile">xin chào Đàm Đạt</a></li> -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="main services-page">
+    <div class="main__header">
+      <a href="/?page/home">
+        <span>furnitown</span>
+      </a>
+      <a href="#">
+        <span>share</span>
+      </a>
+      <a href="#">
+        <img src="../public/img/right-arrow.svg" alt="right-arrow-icon" />
+      </a>
+    </div>
+    <aside class="main__sidebar-btn">
+      <div class="main__sidebar-btn--initial">
+        <img src="../public/img/logo-icon.png" alt="logo" />
+        <div class="--ham-btn">
+          <span></span>
+        </div>
+      </div>
+      <div class="main__sidebar-btn--hover">
+        <div class="--wrapper">
+          <span>menu</span>
+          <div class="--logo">
+            <img src="../public/img/logo-menu-hover.png" alt="logo-menu-hover" />
+          </div>
+        </div>
+      </div>
+    </aside>
+    <aside class="sidebar">
+      <div class="sidebar__top">
+        <span>furnitown</span>
+        <div class="sidebar__top-media">
+          <span>follow us</span>
+          <a href="#">
+            <img src="../public/img/email-icon.png" alt="email-icon" />
+          </a>
+          <a href="#">
+            <img src="../public/img/facebook-icon.png" alt="email-icon" />
+          </a>
+        </div>
+      </div>
+      <div class="sidebar__middle">
+        <div class="sidebar__middle-logo">
+          <i>
+            <img src="../public/img/logo-icon.png" alt="logo-icon" />
+          </i>
+          <div class="-close"></div>
+        </div>
+        <div class="sidebar__middle-menu">
+          <a href="../?page/home">furnitown</a>
+          <a href="./product.html">sản phẩm</a>
+          <a href="./services.html">dịch vụ</a>
+          <a href="./projects.html">dự án</a>
+          <a href="?user/login">Người dùng</a>
+          <div class="-footer">
+            <a href="#">faqs</a>
+            <a href="news.html">tin tức</a>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div class="main__backdrop"></div>
+
+    <!-- Header -->
+    <section class="services-page-header">
+      <div class="container">
+        <h2>Quản lý thông tin người dùng</h2>
+
+      </div>
+    </section>
+
+    <!-- advisory -->
+    <section class="services-page-advisory">
+      <div class="container">
+        <h3>hồ sơ của bạn</h3>
+        <div class="services-page-advisory__wrapper">
+          <div class="services-page-advisory__text">
+            <form id="profileForm" action="">
+              <label for="name">Họ và tên</label><br>
+              <input type="text" id="name"><br>
+              <hr>
+              <label for="name">Email</label><br>
+              <input type="email" id="email"><br>
+              <hr>
+              <label for="name">Mật khẩu</label><br>
+              <input type="password" placeholder="   Để trống nếu không thay đổi" id="pass"><br>
+              <hr>
+              <label for="name">Nhập lại mật khẩu</label><br>
+              <input type="password" placeholder="   Để trống nếu không thay đổi" id="re_pass"><br>
+              <hr>
+              <label for="name">Vai trò</label><br>
+              <input type="text" readonly id="role"><br>
+              <hr>
+              <button type="submit">CẬP NHẬT</button>
+            </form>
+          </div>
+          <div class="services-page-advisory__btn">
+            <div class="-wrapper">
+              <a href="?user/logout" class="btn-square --active">
+                <span>đăng xuất</span>
+              </a>
+            </div>
+            <div class="-wrapper">
+              <a href="product.html" class="btn-square">
+                <span>xem sản phẩm</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section class="services-page-work">
+      <!-- <div class="container">
+          <div class="services-page-work__title">
+            <h3>Thi công dự án</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+              mollis tristique pellentesque. Praesent dapibus lectus neque, vel
+              convallis orci eleifend vel. Phasellus felis lectus, eleifend eget
+              quam eu, gravida sagittis urna. Sed nec nibh id nulla feugiat
+              sagittis. Maecenas hendrerit blandit pulvinar.
+            </p>
+          </div>
+          <div class="services-page-work__img">
+            <img src="../public/img/service-work.jpg" alt="service-work" />
+          </div>
+        </div> -->
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__logo">
+        <img src="../public/img/logo-full.png" alt="logo-full" />
+      </div>
+      <div class="footer__info">
+        <span>Thời gian mở cửa: 8h - 18h - Thứ 2 đến Chủ nhật</span>
+        <span>Số 7/22A, Ấp 6, xã Đông Thạnh, huyện Hóc Môn, thành phố Hồ Chí
+          Minh</span>
+        <span>Hotline: 0937.168.938</span>
+        <span>Email: noithatfunitown@gmail.com</span>
+      </div>
+      <div class="footer__scroll-top">back to top</div>
+    </div>
+  </footer>
+  <!-- JS -->
+  <script src="../public/dest/jsmain.min.js"></script>
+  <script src="../public/dest/jquerymain.js"></script>
+</body>
+
+</html>

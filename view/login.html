@@ -1,0 +1,74 @@
+
+  <main class="contact-page" style="
+        background-image: url('./../public/img/contact-bg.jpg');
+        min-height: 100vh;
+      ">
+   
+    <div class="main__backdrop"></div>
+    <!-- content -->
+    <div class="content">
+      <div class="container">
+        <div class="login-form" style="width: 60%; margin: 0 auto; height: 350px; backdrop-filter: blur(20px); border: 1px solid #7a7a7a; border-radius: 10px; display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 50px;">
+          <h2 style="font-size: 20px; color: white; font-weight: 650; font-family: Arial, Helvetica, sans-serif; margin-bottom: 20px;">Đăng Nhập</h2>
+        
+          <form id="formLogin" style="width: 80%; display: flex; flex-direction: column; align-items: flex-start;">
+            <div class="form-group" style="width: 100%; margin-bottom: 15px;">
+              <label for="email" style="color: white; font-size: 14px; font-family: Arial, sans-serif; display: block; margin-bottom: 5px;">Email:</label>
+              <input type="email" id="email" name="email" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px; box-sizing: border-box;" />
+              <span id="emailError" style="color: red; font-size: 12px; display: none;">Vui lòng nhập email hợp lệ.</span>
+            </div>
+        
+            <div class="form-group" style="width: 100%; margin-bottom: 20px;">
+              <label for="password" style="color: white; font-size: 14px; font-family: Arial, sans-serif; display: block; margin-bottom: 5px;">Mật khẩu:</label>
+              <input type="password" id="password" name="password" autocomplete="current-password"  style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px; box-sizing: border-box;" />
+              <span id="passwordError" style="color: red; font-size: 12px; display: none;">Vui lòng nhập mật khẩu.</span>
+            </div>
+        
+            <button type="submit" style="width: 100%; padding: 10px; background-color: #007bff; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer; font-family: Arial, sans-serif;">Đăng Nhập</button>
+          </form>
+          <a style="margin-top: 30px; color: white;" href="?user/signup">Chưa có tài khoản? Đăng ký ngay</a>
+        </div>
+        
+        <script>
+          document.getElementById("formLogin").addEventListener("submit", function(event) {
+            event.preventDefault(); // Ngăn form gửi đi mặc định
+        
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var isValid = true;
+        
+            if (!email) {
+              document.getElementById("emailError").style.display = "block";
+              isValid = false;
+            } else if (!validateEmail(email)) {
+              document.getElementById("emailError").textContent = "Email không đúng định dạng.";
+              document.getElementById("emailError").style.display = "block";
+              isValid = false;
+            } else {
+              document.getElementById("emailError").style.display = "none";
+            }
+        
+            if (!password) {
+              document.getElementById("passwordError").style.display = "block";
+              isValid = false;
+            } else {
+              document.getElementById("passwordError").style.display = "none";
+            }
+        
+            if (isValid) {
+              alert("Đăng nhập thành công!");
+            }
+          });
+        
+          function validateEmail(email) {
+            var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+          }
+
+          
+        </script>
+        
+
+      </div>
+    </div>
+  </main>

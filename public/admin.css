@@ -1,0 +1,680 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Container chung */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #132539;
+  color: #fff;
+  width: 250px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  width: 100%;
+  text-align: center;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+  color: #16a085;
+}
+
+/* Content chính */
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+.content h1 {
+  margin-bottom: 20px;
+}
+
+/* Bảng người dùng */
+
+.addUser {
+  text-align: right; /* Đẩy nút sang bên phải */
+  margin-bottom: 20px; /* Khoảng cách dưới nút */
+}
+
+.addUser a {
+  background-color: #132539; /* Màu nền của nút */
+  color: white; /* Màu chữ trắng */
+  padding: 10px 20px; /* Khoảng cách xung quanh chữ */
+  text-decoration: none; /* Bỏ gạch chân */
+  font-size: 16px; /* Cỡ chữ */
+  font-weight: 600; /* Làm chữ đậm */
+  border-radius: 4px; /* Bo góc */
+  transition: background-color 0.3s ease; /* Hiệu ứng khi hover */
+}
+
+.addUser a:hover {
+  background-color: #16a085; /* Màu nền khi hover */
+}
+
+.user_table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Header của bảng */
+.user_table #head .table-row {
+  background-color: #132539; /* Màu nền header */
+  color: white;
+  font-weight: bold;
+  display: flex; /* Đảm bảo header căn chỉnh đều */
+  justify-content: space-between; /* Căn đều các cột */
+}
+
+.user_table #body .table-row {
+  display: flex; /* Đảm bảo các hàng trong body được căn chỉnh theo flex */
+  justify-content: space-between; /* Căn đều các cột */
+  border-bottom: 1px solid #ddd;
+}
+
+/* Các ô trong bảng */
+/* Các ô trong bảng */
+.user_table .table-cell {
+  display: inline-block; /* Đảm bảo các cột có thể căn đều */
+  padding: 10px 15px;
+  text-align: left;
+  border-right: 1px solid #ddd;
+}
+
+/* Cột ID hẹp lại */
+.user_table .table-cell:nth-child(1) {
+  width: 10%; /* Cột ID hẹp lại */
+}
+
+/* Cột Tên người dùng và Email rộng ra */
+.user_table .table-cell:nth-child(2),
+.table-cell:nth-child(3) {
+  width: 25%; /* Cột Tên và Cột Email sẽ rộng hơn */
+}
+
+/* Các cột còn lại (Vai trò và Hành động) vẫn giữ chiều rộng ban đầu */
+.user_table .table-cell:nth-child(4),
+.table-cell:nth-child(5) {
+  width: 20%;
+}
+
+.user_table .table-cell:last-child {
+  border-right: none;
+}
+
+/* Style cho các nút hành động */
+.user_table .edit-btn,
+.user_table .delete-btn {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.user_table .edit-btn {
+  background-color: #132539;
+  color: white;
+}
+
+.user_table .delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.user_table .edit-btn:hover {
+  background-color: #16a085;
+}
+
+.user_table .delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Style cho các phần tử table-row trong nội dung bảng */
+.user_table #body .table-row:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.user_table #body .table-row:nth-child(even) {
+  background-color: #fff;
+}
+
+.user_table #body .table-row:hover {
+  background-color: #f1f1f1;
+}
+
+/* Thêm tài khoản mới */
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+}
+
+#formUser {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#formUser label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #555;
+}
+
+#formUser input,
+#formUser select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+#formUser input[type="text"] {
+  height: 40px;
+}
+
+#formUser select {
+  height: 40px;
+}
+
+/* Nút tạo mới */
+#formUser button {
+  width: 100%;
+  padding: 12px;
+  background-color: #132539;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#formUser button:hover {
+  background-color: #16a085;
+}
+
+/* Hiệu ứng focus cho input và select */
+#formUser input:focus,
+#formUser select:focus {
+  border-color: #1abc9c;
+  outline: none;
+}
+/* -------------------------------------------------------------------------------------------------------------------- */
+#formProduct {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#formProduct label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #555;
+}
+
+#formProduct input,
+#formProduct select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+#formProduct input[type="text"] {
+  height: 40px;
+}
+
+#formProduct select {
+  height: 40px;
+}
+
+/* Nút tạo mới */
+#formProduct button {
+  width: 100%;
+  padding: 12px;
+  background-color: #132539;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#formProduct button:hover {
+  background-color: #16a085;
+}
+
+/* Hiệu ứng focus cho input và select */
+#formProduct input:focus,
+#formProduct select:focus {
+  border-color: #1abc9c;
+  outline: none;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+
+
+/* Pagination styles */
+#pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 8px; /* Khoảng cách giữa các nút */
+}
+
+#pagination a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Đảm bảo kích thước nút bằng nhau */
+  height: 40px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#pagination a:hover {
+  background-color: #132539; /* Màu hover */
+  color: white;
+}
+
+#pagination a.page_first,
+#pagination a.page_last {
+  font-size: 12px; /* Font size nhỏ hơn cho các nút điều hướng đầu/cuối */
+}
+
+#pagination a.page_prev,
+#pagination a.page_next {
+  font-size: 16px; /* Font size lớn hơn cho nút điều hướng trước/sau */
+}
+
+#pagination a.active {
+  background-color: #132539; /* Trang hiện tại có màu giống hover */
+  color: white;
+  border-color: #132539;
+  pointer-events: none; /* Vô hiệu hóa nhấp chuột trên trang hiện tại */
+}
+[disabled] {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+/* ------------------------------------------------------------------------------------------------------- */
+/* Thêm sản phẩm */
+.addProduct {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.addProduct a {
+  background-color: #132539;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.addProduct a:hover {
+  background-color: #16a085;
+}
+
+/* Bảng sản phẩm */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.product-table-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-table .product-table-row-head{
+    background-color: #132539;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+}
+
+.product-table-cell {
+  flex: 1; /* Mặc định cho các cột */
+  padding: 10px 15px;
+  text-align: left;
+  border-right: 1px solid #ddd;
+}
+#pro-body .product-table-cell {
+  flex: 1; /* Mặc định cho các cột */
+  padding: 10px 15px;
+  text-align: left;
+  border-right: 1px solid #ddd;
+}
+
+.product-table-cell:last-child {
+  border-right: none;
+}
+
+
+#pro-body .product-table-row:hover {
+  background-color: #f1f1f1;
+}
+
+.product-img {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 4px;
+}
+
+/* Nút hành động */
+.edit-btn,
+.delete-btn {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.edit-btn {
+  background-color: #132539;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #16a085;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+
+
+/* Phân trang */
+#product-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 8px;
+}
+
+#product-pagination a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#product-pagination a:hover {
+  background-color: #132539;
+  color: white;
+}
+
+#product-pagination a.active {
+  background-color: #132539;
+  color: white;
+  border-color: #132539;
+  pointer-events: none;
+}
+/* Giới hạn phạm vi CSS cho trang danh mục */
+.category-page .addCate {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.category-page .addCate a {
+  background-color: #132539;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.category-page .cate_table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Poppins", sans-serif;
+}
+
+.category-page .table-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+
+.category-page .header {
+  background-color: #132539;
+  color: white;
+  font-weight: bold;
+}
+
+.category-page .table-cell {
+  flex: 1;
+  padding: 10px 15px;
+  text-align: left;
+  border-right: 1px solid #ddd;
+}
+
+.category-page .table-cell:last-child {
+  border-right: none;
+}
+
+.category-page .body:hover {
+  background-color: #f1f1f1;
+}
+
+.category-page .edit-btn,
+.category-page .delete-btn {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.category-page .edit-btn {
+  background-color: #132539;
+  color: white;
+}
+
+.category-page .delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.category-page .edit-btn:hover {
+  background-color: #16a085;
+}
+
+.category-page .delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.category-page #cate_pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 8px;
+}
+
+.category-page #cate_pagination a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.category-page #cate_pagination a:hover {
+  background-color: #132539;
+  color: white;
+}
+
+.category-page #cate_pagination a.active {
+  background-color: #132539;
+  color: white;
+  border-color: #132539;
+  pointer-events: none;
+}
+
+
+#formCate {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#formCate label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #555;
+}
+
+#formCate input,
+#formCate select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+#formCate input[type="text"] {
+  height: 40px;
+}
+
+#formCate select {
+  height: 40px;
+}
+
+/* Nút tạo mới */
+#formCate button {
+  width: 100%;
+  padding: 12px;
+  background-color: #132539;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#formCate button:hover {
+  background-color: #16a085;
+}
+
+/* Hiệu ứng focus cho input và select */
+#formCate input:focus,
+#formCate select:focus {
+  border-color: #1abc9c;
+  outline: none;
+}

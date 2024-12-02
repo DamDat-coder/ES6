@@ -1,0 +1,227 @@
+.news-detail-page {
+    & .main__header {
+        top: -10px;
+        & a {
+            & span {
+                color: $black-cl;
+            }
+        }
+    }
+    & .container {
+        padding: 0 25px;
+    }
+    &__content {
+        & > .back-btn {
+            @include box(100%);
+            @include flex(flex-end, center);
+            margin-top: 50px;
+            margin-bottom: 120px;
+
+            & > .-back {
+                @include flex(flex-end, center);
+                & > span {
+                    @include text(11px, Arial, normal, normal);
+                    text-transform: uppercase;
+                    margin-right: 20px;
+                    font-weight: bold;
+                }
+                & > i {
+                    @include flex(flex-end, center);
+                    width: 20px;
+                }
+            }
+        }
+        & > .img {
+            @include box(100%, 0);
+            padding-bottom: 48%;
+            position: relative;
+            margin-bottom: 70px;
+            & > img {
+                @include box(100%);
+                object-fit: cover;
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        & .text {
+            margin-bottom: 140px;
+            padding-right: 300px;
+            &__title {
+                @include text(20px, e-normal, 32px, 1px);
+                margin-bottom: 50px;
+                text-transform: uppercase;
+            }
+            &__subtitle {
+                @include text(12px, Arial, 22px, 1px);
+                font-weight: bold;
+                margin-bottom: 45px;
+                text-transform: uppercase;
+            }
+            &__time {
+                @include text(12px, Arial, 22px, 1px);
+                font-style: italic;
+                margin-bottom: 50px;
+            }
+            &__content {
+                @include text(12px, Arial, 22px, 1px);
+            }
+        }
+    }
+    & .related-articles {
+        &__title {
+            @include box(100%, auto);
+            @include text(11px, Arial, 100%, 1px);
+            font-weight: bold;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            text-align: center;
+            position: relative;
+
+            &::before,
+            &::after {
+                content: '';
+                width: 40%;
+                height: 1px;
+                background: $black-cl;
+            }
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 0;
+            }
+            &::after {
+                position: absolute;
+                top: 50%;
+                right: 0;
+            }
+        }
+        &__list {
+            @include flex(space-between, center, row, wrap);
+            margin-right: -25px;
+            margin-bottom: 90px;
+            & > .article {
+                @include box(calc(33.33% - 25px), auto);
+                margin-right: 25px;
+            }
+        }
+    }
+
+    @include xs {
+        & .main__header {
+            // top: -10px;
+            & a {
+                & span {
+                    color: $black-cl;
+                }
+            }
+        }
+        & .container {
+            padding: 0 25px;
+        }
+        &__content {
+            & > .back-btn {
+                @include box(100%);
+                @include flex(flex-end, center);
+                margin-top: 0px;
+                margin-bottom: 60px;
+                padding-top: 20px;
+
+                & > .-back {
+                    @include flex(flex-end, center);
+                    & > span {
+                        @include text(11px, Arial, normal, normal);
+                        text-transform: uppercase;
+                        margin-right: 20px;
+                        font-weight: bold;
+                    }
+                    & > i {
+                        @include flex(flex-end, center);
+                        width: 20px;
+                    }
+                }
+            }
+            & > .img {
+                @include box(100%, 0);
+                padding-bottom: 125%;
+                position: relative;
+                margin-bottom: 50px;
+                & > img {
+                    @include box(100%);
+                    object-fit: cover;
+
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+            & .text {
+                margin-bottom: 140px;
+                padding-right: 0;
+                &__title {
+                    @include text(20px, e-normal, 32px, 1px);
+                    margin-bottom: 50px;
+                    text-transform: uppercase;
+                    text-align: center;
+                }
+                &__subtitle {
+                    @include text(12px, Arial, 22px, 1px);
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                    text-transform: uppercase;
+                }
+                &__time {
+                    @include text(12px, Arial, 22px, 1px);
+                    font-style: italic;
+                    margin-bottom: 25px;
+                }
+                &__content {
+                    @include text(12px, Arial, 22px, 1px);
+                    text-align: justify;
+                }
+            }
+        }
+        & .related-articles {
+            &__title {
+                @include box(100%, auto);
+                @include text(11px, Arial, 100%, 1px);
+                font-weight: bold;
+                margin-bottom: 50px;
+                text-transform: uppercase;
+                text-align: center;
+                position: relative;
+
+                &::before,
+                &::after {
+                    content: '';
+                    width: 20%;
+                    height: 1px;
+                    background: $black-cl;
+                }
+                &::before {
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                }
+                &::after {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                }
+            }
+            &__list {
+                @include flex(flex-start, center, column);
+                margin-right: 0px;
+                margin-bottom: 20px;
+                & > .article {
+                    @include box(100%, auto);
+                    margin-right: 0px;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+    }
+}

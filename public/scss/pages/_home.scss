@@ -1,0 +1,687 @@
+.slider {
+    @include box(100%, 100vh);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    &__wrapper {
+        @include box(100%);
+    }
+    &__item {
+        @include box(100%);
+
+        img {
+            @include midImg;
+            width: 100%;
+            height: 100%;
+        }
+        &-textbox {
+            @include mid(abs);
+            @include flex(center, center, column);
+            color: $text-white-cl;
+            h2 {
+                @include text(80px, e-normal, 100%, normal);
+                text-transform: uppercase;
+            }
+            p {
+                @include text(12px, Arial, 100%, -0.25px);
+                font-weight: bold;
+                text-transform: uppercase;
+                margin: 60px 0;
+            }
+        }
+    }
+    &__header {
+        position: absolute;
+        top: 6.1%;
+        left: 2.8%;
+        span {
+            color: $text-cl;
+            @include text(11px, Arial, 30px, 1px);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        & span:first-child {
+            margin-right: 20px;
+        }
+    }
+    &__sidebar-btn {
+        @include box(125px);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        cursor: pointer;
+        &--initial {
+            @include flex(center, center, column);
+            @include box(125px);
+            background: $blue-cl;
+
+            visibility: visible;
+            opacity: 1;
+            @include transition($t);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            & > img {
+                margin-bottom: 20px;
+            }
+            & > .--ham-btn {
+                @include box(40px, 20px);
+                @include flex(center, center);
+                position: relative;
+                span {
+                    @include box(100%, 2px);
+                    display: block;
+                    background: $white-cl;
+                    opacity: 1;
+                    @include transition($t);
+                }
+                &::before,
+                &::after {
+                    content: '';
+                    @include box(40px, 2px);
+                    display: block;
+                    background: $white-cl;
+                    transform-origin: 50% 50%;
+                    @include transform(rotate(0deg) translate(0px, 0px));
+                    @include transition($t);
+                }
+                &::before {
+                    position: absolute;
+                    top: 0;
+                }
+                &::after {
+                    position: absolute;
+                    bottom: 0;
+                }
+            }
+        }
+        &--hover {
+            @include flex(center, center);
+            @include box(200px, 180px);
+            background: $white-cl;
+
+            visibility: hidden;
+            opacity: 0;
+            @include transition($t);
+
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            & .--wrapper {
+                @include flex(center, baseline);
+                & > span {
+                    @include text(12px, Arial, normal, 2px);
+                    font-weight: bold;
+                    margin-right: 20px;
+                    text-transform: uppercase;
+                }
+                & .--logo {
+                    position: relative;
+                    & > img {
+                        padding-bottom: 10px;
+                    }
+                    &::after {
+                        content: '';
+                        width: 0;
+                        height: 0.5px;
+                        background: $black-cl;
+                        position: absolute;
+                        left: 0;
+                        bottom: 5px;
+                        @include transition($t);
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            .slider__sidebar-btn--initial {
+                transform: scale(1.8, 1.5);
+                visibility: hidden;
+                opacity: 0;
+                @include transition(0.2s);
+            }
+            .slider__sidebar-btn--hover {
+                transform: translate(0%, -50%);
+                visibility: visible;
+                opacity: 1;
+                @include transition($t);
+                & .--logo {
+                    &::after {
+                        width: 100%;
+                        @include transition(0.7s);
+                    }
+                }
+            }
+        }
+    }
+    &__footer {
+        @include flex(flex-end, center, column);
+        position: absolute;
+        bottom: 2.4%;
+        left: 50%;
+        transform: translateX(-50%);
+        &-mouse {
+            height: fit-content;
+            margin-bottom: 15px;
+            position: relative;
+            &::before {
+                content: '';
+                width: 0.5px;
+                height: 14.6vh;
+                position: absolute;
+                top: calc(-14.6vh - 8px);
+                left: 50%;
+                transform: translateX(-50%);
+                background: $black-cl;
+            }
+            & .--point {
+                @include box(5px);
+                border-radius: 50%;
+                background: $black-cl;
+                outline: none;
+                border: none;
+                position: absolute;
+                top: 5px;
+                left: 50%;
+                transform: translateX(-50%);
+                @include animation(scrolldown 1s ease forwards infinite);
+            }
+            @include keyframes(scrolldown) {
+                0% {
+                    top: 5px;
+                    opacity: 0;
+                    @include transition($t);
+                }
+                100% {
+                    top: 22px;
+                    opacity: 1;
+                    @include transform($t);
+                }
+            }
+        }
+        p {
+            @include text(11px, Arial, 100%, 1px);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+    &__backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        background: rgba(0, 0, 0, 0.6);
+
+        visibility: hidden;
+        opacity: 0;
+        @include transition($t);
+        &.--active {
+            visibility: visible;
+            opacity: 1;
+            @include transition($t);
+        }
+    }
+    &__bottom-control {
+        @include flex(center, center);
+        position: absolute;
+        bottom: 2.4%;
+        right: -50px;
+        transform: translate(-50%);
+        z-index: 10;
+        .btn {
+            --pdPrimary: 15px 50px;
+            --pdNotext: 10px 40px;
+            --mrText: 20px;
+            --fzText: 14px;
+            @include mid(flx);
+            padding: var(--pdPrimary);
+            width: max-content;
+            border-radius: 0 !important;
+
+            background-color: transparent;
+            @include transition($t);
+
+            cursor: pointer;
+            overflow: hidden;
+
+            & > span {
+                @include text(var(--fzText), pb, 58.33%, 2px);
+                text-transform: uppercase;
+            }
+
+            & > i {
+                @include mid(flx);
+                position: relative;
+                right: 0;
+                @include transition($t);
+            }
+
+            &.--primary {
+                border: 1px solid $black-cl;
+                & > span {
+                    color: $white-cl;
+                    margin-right: var(--mrText);
+                }
+                &:hover {
+                    background: $white-cl;
+                    & > i {
+                        margin-left: 20px;
+                        right: -10px;
+                        @include transition($t);
+                        & > img {
+                            @include transition($t);
+                            width: 10px;
+                        }
+                    }
+                }
+            }
+
+            &.--notext {
+                @extend .--primary;
+                padding: var(--pdNotext);
+                & > i {
+                    margin: initial;
+                    & > img {
+                        @include transform(scale(1));
+                        @include transition($t);
+                        width: 20px;
+                    }
+                }
+                &:hover {
+                    background: $white-cl;
+                    & > i {
+                        margin: initial;
+                        right: initial;
+                        & > img {
+                            @include transform(scale(1.2));
+                            @include transition($t);
+                            width: 20px;
+                        }
+                    }
+                }
+            }
+        }
+        @include xs {
+            display: none;
+        }
+    }
+
+    // Responsive
+    @include xs {
+        @include box(100%, 90vh);
+        overflow: visible;
+        z-index: 200;
+        &__item {
+            @include box(100%);
+            img {
+                height: 100%;
+            }
+            &-textbox {
+                h2 {
+                    @include text(50px, e-normal, 100%, normal);
+                }
+                p {
+                    @include text(8px, Arial, 100%, -0.25px);
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    margin: 40px 0;
+                }
+            }
+        }
+        &__header {
+            display: none;
+        }
+        &__sidebar-btn {
+            @include box(50px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateY(0);
+            cursor: pointer;
+            &--initial {
+                @include flex(center, center, column);
+                @include box(50px);
+                background: $blue-cl;
+
+                visibility: visible;
+                opacity: 1;
+                @include transition($t);
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                & > img {
+                    display: none;
+                }
+                & > .--ham-btn {
+                    @include box(25px, 15px);
+                    span {
+                        @include box(100%, 2px);
+                    }
+                    &::before,
+                    &::after {
+                        @include box(100%, 2px);
+                    }
+                    &::before {
+                        position: absolute;
+                        top: 0;
+                    }
+                    &::after {
+                        position: absolute;
+                        bottom: 0;
+                    }
+                }
+            }
+            &--hover {
+                display: none;
+            }
+        }
+        &__footer {
+            &-mouse {
+                display: none;
+            }
+            p {
+                display: none;
+            }
+        }
+    }
+    @include xxs {
+        @include box(100%, 100%);
+        overflow: visible;
+        z-index: 200;
+        &__item {
+            @include box(100%);
+            img {
+                height: 100%;
+            }
+            &-textbox {
+                h2 {
+                    @include text(45px, e-normal, 100%, normal);
+                }
+                p {
+                    @include text(8px, Arial, 100%, -0.25px);
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    margin: 40px 0;
+                }
+            }
+        }
+    }
+}
+
+.room {
+    @include box(100%, fit-content);
+    padding-top: 160px;
+    position: relative;
+    &__wrapper {
+        @include box(100%, auto);
+        position: relative;
+        z-index: 100;
+    }
+    &-dual {
+        @include flex();
+        height: 500px;
+        // overflow: hidden;
+        margin-right: -30px;
+
+        &__withinText,
+        &__withoutText {
+            @include box(calc(50% - 30px), 100%);
+            margin-right: 30px;
+        }
+        &__withinText {
+            @include flex(space-between, center, column);
+            &-quote {
+                padding-right: 100px;
+                height: 40%;
+                max-height: 50%;
+                & p {
+                    margin-top: -13px;
+                    @include text(12px, Arial, 40px, normal);
+                }
+                & strong {
+                    font-weight: bold;
+                }
+            }
+            &-img {
+                @include flex(center, flex-end);
+                width: 100%;
+                height: 60%;
+                max-height: 60%;
+            }
+        }
+
+        &__withoutText {
+            .img-block {
+                &__wrapper {
+                    & > img {
+                        left: 0;
+                    }
+                }
+            }
+        }
+
+        &.--reverse {
+            @include flex(flex-start, center, row-reverse);
+            .room-dual {
+                &__withinText {
+                    @include flex(space-between, center, column-reverse);
+                    &-quote {
+                        @include flex(flex-end, flex-end);
+                        padding-right: 0;
+                        padding-left: 100px;
+                        height: 40%;
+                        max-height: 40%;
+                        & p {
+                            margin-top: 0;
+                            margin-bottom: -13px;
+                            @include text(18px, e-i, 40px, normal);
+                            text-align: right;
+                            color: $white-cl;
+                            & span {
+                                color: $text-yellow-cl;
+                            }
+                        }
+                        .pen {
+                            position: absolute;
+                            bottom: -50px;
+                            right: 70px;
+                            z-index: -1;
+                        }
+                    }
+                }
+                &__withoutText {
+                    .img-block {
+                        &__wrapper {
+                            & > img {
+                                left: 80%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-single {
+        margin: 60px 0;
+        @include box(100%, 410px);
+    }
+
+    &::after {
+        content: '';
+        @include box(100%, 300px);
+        background: $blue-cl;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    // Responsive
+    @include xs {
+        padding-top: 50px;
+        &-dual {
+            @include flex(flex-start, center, column);
+            width: 100%;
+            height: auto;
+            // overflow: hidden;
+            margin-right: 0;
+            margin-bottom: -30px;
+
+            &__withinText,
+            &__withoutText {
+                @include box(100%, 100%);
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
+            &__withinText {
+                @include flex(space-between, center, column);
+                &-quote {
+                    padding-right: 0;
+                    height: 100%;
+                    max-height: 100%;
+                    margin-bottom: 20px;
+                    & p {
+                        margin-top: 0;
+                        @include text(11px, Arial, 40px, normal);
+                        text-align: center;
+                    }
+                    & strong {
+                        font-weight: bold;
+                    }
+                }
+                &-img {
+                    @include flex(center, flex-end);
+                    width: 100%;
+                    height: 300px;
+                    max-height: fit-content;
+                }
+            }
+
+            &__withoutText {
+                width: 100%;
+                height: 300px;
+                .img-block {
+                    &__wrapper {
+                        & > img {
+                            left: 0;
+                        }
+                    }
+                }
+            }
+
+            &.--reverse {
+                @include flex(flex-start, center, column-reverse);
+                .room-dual {
+                    &__withinText {
+                        @include flex(space-between, center, column-reverse);
+                        &-quote {
+                            @include flex(flex-end, flex-end);
+                            padding-right: 0;
+                            padding-left: 0;
+                            & p {
+                                margin-top: 10px;
+                                margin-bottom: -13px;
+                                @include text(14px, e-i, 40px, normal);
+                                text-align: center;
+                            }
+                            .pen {
+                                bottom: 0;
+                                left: 50%;
+                                transform: translateX(-50%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &-single {
+            @include box(100%, 300px);
+        }
+    }
+
+    @include xxs {
+        padding-top: 50px;
+        &-dual {
+            @include flex(flex-start, center, column);
+            width: 100%;
+            height: auto;
+            // overflow: hidden;
+            margin-right: 0;
+            margin-bottom: -30px;
+
+            &__withinText,
+            &__withoutText {
+                @include box(100%, 100%);
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
+            &__withinText {
+                @include flex(space-between, center, column);
+                &-quote {
+                    padding-right: 0;
+                    height: 100%;
+                    max-height: 100%;
+                    margin-bottom: 20px;
+                    & p {
+                        margin-top: 0;
+                        @include text(11px, Arial, 40px, normal);
+                    }
+                    & strong {
+                        font-weight: bold;
+                    }
+                }
+                &-img {
+                    @include flex(center, flex-end);
+                    width: 100%;
+                    height: 300px;
+                    max-height: fit-content;
+                }
+            }
+
+            &__withoutText {
+                width: 100%;
+                height: 300px;
+                .img-block {
+                    &__wrapper {
+                        & > img {
+                            left: 0;
+                        }
+                    }
+                }
+            }
+
+            &.--reverse {
+                @include flex(flex-start, center, column-reverse);
+                .room-dual {
+                    &__withinText {
+                        @include flex(space-between, center, column-reverse);
+                        &-quote {
+                            @include flex(flex-end, flex-end);
+                            padding-right: 0;
+                            padding-left: 0;
+                            & p {
+                                margin-top: 10px;
+                                margin-bottom: -13px;
+                                @include text(14px, e-i, 40px, normal);
+                            }
+                            .pen {
+                                bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &-single {
+            @include box(100%, 300px);
+        }
+    }
+}

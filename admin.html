@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./public/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar (Aside) -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="https://via.placeholder.com/100" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="?page/dashboard">Thống kê</a></li>
+                    <li><a href="?pro/list">Sản phẩm</a></li>
+                    <li><a href="?user/list">Người dùng</a></li>
+                    <li><a href="?cate/list">Danh mục</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            
+        </main>
+    </div>
+
+    <!-- Script cho Chart.js -->
+     <script type="module" src="./model/admin.js"></script>
+    <!-- <script>
+        // Biểu đồ cột (Bar chart)
+        const ctx1 = document.getElementById('chart1').getContext('2d');
+        const chart1 = new Chart(ctx1, {
+            type: 'bar', // Biểu đồ cột
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], // Nhãn theo tháng
+                datasets: [{
+                    label: 'Doanh thu',
+                    data: [1200, 1900, 3000, 1500, 2200, 2800], // Dữ liệu doanh thu theo từng tháng
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)', // Màu nền cột
+                    borderColor: 'rgba(54, 162, 235, 1)', // Màu viền cột
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Biểu đồ đường (Line chart)
+        const ctx2 = document.getElementById('chart2').getContext('2d');
+        const chart2 = new Chart(ctx2, {
+            type: 'line', // Biểu đồ đường
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], // Nhãn theo tháng
+                datasets: [{
+                    label: 'Lượt truy cập',
+                    data: [500, 800, 1300, 1100, 1400, 1800], // Dữ liệu lượt truy cập theo tháng
+                    fill: false, // Không tô màu dưới đường
+                    borderColor: 'rgba(75, 192, 192, 1)', // Màu đường
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script> -->
+</body>
+</html>

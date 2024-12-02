@@ -1,0 +1,364 @@
+.detail-page {
+    padding-top: 100px;
+    // border-top: 1px solid rgba(0, 0, 0, 0.4);
+    & > .main__header {
+        transform: translateY(-50%);
+        a {
+            span {
+                color: $black-cl;
+            }
+        }
+    }
+
+    .detail {
+        border-top: 1px solid rgba(0, 0, 0, 0.4);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        & > .secondary-container {
+            @include flex();
+        }
+        &-img {
+            @include flex(center, center, column);
+            width: calc(68% - 70px);
+            padding: 50px 0;
+            margin-right: 70px;
+            &__wrapper {
+                @include box(100%, 0);
+                padding-bottom: 68.125%;
+                background: $gray-cl;
+                position: relative;
+                & > img {
+                    @include box(100%);
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+            &__zoom {
+                @include box(100%, auto);
+                @include flex(flex-end, center);
+                & .-btn {
+                    padding: 12px 10px;
+                    background: $black-cl;
+                    @include flex(center, center);
+                    & > span {
+                        @include text(11px, Arial, 100%, 0.2px);
+                        font-weight: bold;
+                        color: $white-cl;
+                        padding: 0 15px;
+                        margin-right: 5px;
+                    }
+                    & > i {
+                        @include flex(center, center);
+                        & > img {
+                            width: 13px;
+                        }
+                    }
+                }
+            }
+            &__control {
+                @include box(100%, auto);
+                @include flex(flex-start, center);
+                & .-btn {
+                    @include flex(flex-start, center);
+                    & .play-btn {
+                        @include box(65px);
+                        & > i {
+                            @include box(10px);
+                        }
+                        &:first-child {
+                            margin-right: 20px;
+                            & > i {
+                                transform-origin: center;
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &-info {
+            @include flex(flex-start, flex-start, column);
+            width: 32%;
+            padding: 50px 0 50px 20px;
+            border-left: 1px solid rgba(0, 0, 0, 0.4);
+            &__name {
+                @include text(32px, e-normal, 40px, 0);
+                margin-bottom: 60px;
+            }
+            &__price {
+                @include flex(flex-start, flex-end);
+                margin-bottom: 80px;
+                & span {
+                    @include text(16px, Arial, 100%, 1px);
+                    font-weight: bold;
+                    color: $text-yellow-cl;
+                    text-transform: uppercase;
+                    &:first-child {
+                        font-size: 12px;
+                        margin-right: 75px;
+                    }
+                }
+            }
+            &__desc {
+                @include flex(flex-start, flex-start, column);
+                margin-bottom: -45px;
+                &-row {
+                    @include flex(flex-start, flex-end);
+                    @include text(14px, Arial, 100%, 1px);
+                    text-transform: capitalize;
+                    margin-bottom: 45px;
+                    & > span {
+                        &:first-child {
+                            width: 100px;
+                            margin-right: 35px;
+                        }
+                    }
+                }
+            }
+            &__short-desc {
+                margin-top: 100px;
+                padding-right: 50px;
+                & > h5 {
+                    @include text(11px, Arial, 100%, 1px);
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    margin-bottom: 30px;
+                }
+                & > p {
+                    @include text(12px, Arial, 20px, 0);
+                    margin-top: -10px;
+                }
+            }
+        }
+    }
+    .related-products {
+        &__title {
+            @include box(100%, auto);
+            @include text(18px, e-normal, 100%, 0);
+            margin-top: 100px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        &__list {
+            padding-bottom: 80px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        }
+    }
+    .contact {
+        margin-bottom: 150px;
+        & > .container {
+            @include flex(flex-start, center, column);
+        }
+        &__title {
+            @include text(18px, e-normal, 100%, 0);
+            margin-top: 80px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        &__desc {
+            @include text(12px, Arial, 20px, 0);
+            width: 500px;
+            margin-top: -10px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        &__btn {
+            @include flex(center, center);
+            & .-wrapper {
+                &:first-child {
+                    margin-right: 30px;
+                }
+            }
+        }
+    }
+
+    @include xs {
+        padding-top: 100px;
+        // border-top: 1px solid rgba(0, 0, 0, 0.4);
+        & > .main__header {
+            display: block;
+            transform: translateY(-50%);
+            a {
+                span {
+                    color: $black-cl;
+                }
+            }
+        }
+
+        .detail {
+            border-top: 1px solid rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+            & > .secondary-container {
+                @include flex(flex-start, center, column);
+            }
+            &-img {
+                @include flex(center, center, column);
+                margin-top: 10px;
+                width: 100%;
+                padding: 0 0;
+                margin-right: 0;
+                &__wrapper {
+                    @include box(100%, 0);
+                    padding-bottom: 68.125%;
+                    background: $gray-cl;
+                    position: relative;
+                    & > img {
+                        @include box(100%);
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+                &__zoom {
+                    @include box(100%, auto);
+                    @include flex(flex-end, center);
+                    & .-btn {
+                        padding: 12px 10px;
+                        background: $black-cl;
+                        @include flex(center, center);
+                        & > span {
+                            @include text(11px, Arial, 100%, 0.2px);
+                            font-weight: bold;
+                            color: $white-cl;
+                            padding: 0 15px;
+                            margin-right: 5px;
+                        }
+                        & > i {
+                            @include flex(center, center);
+                            & > img {
+                                width: 13px;
+                            }
+                        }
+                    }
+                }
+                &__control {
+                    display: none !important;
+                    @include box(100%, auto);
+                    @include flex(flex-start, center);
+                    & .-btn {
+                        @include flex(flex-start, center);
+                        & .play-btn {
+                            @include box(65px);
+                            & > i {
+                                @include box(10px);
+                            }
+                            &:first-child {
+                                margin-right: 20px;
+                                & > i {
+                                    transform-origin: center;
+                                    transform: rotate(180deg);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &-info {
+                @include flex(flex-start, flex-start, column);
+                width: 100%;
+                margin-top: 10px;
+                padding: 20px 0;
+                border-top: 1px solid rgba(0, 0, 0, 0.4);
+                border-left: none;
+                &__name {
+                    @include text(32px, e-normal, 40px, 0);
+                    margin-bottom: 60px;
+                }
+                &__price {
+                    @include flex(flex-start, flex-end);
+                    margin-bottom: 80px;
+                    & span {
+                        @include text(16px, Arial, 100%, 1px);
+                        font-weight: bold;
+                        color: $text-yellow-cl;
+                        text-transform: uppercase;
+                        &:first-child {
+                            font-size: 12px;
+                            margin-right: 75px;
+                        }
+                    }
+                }
+                &__desc {
+                    @include flex(flex-start, flex-start, column);
+                    margin-bottom: -45px;
+                    &-row {
+                        @include flex(flex-start, flex-end);
+                        @include text(14px, Arial, 100%, 1px);
+                        text-transform: capitalize;
+                        margin-bottom: 45px;
+                        & > span {
+                            &:first-child {
+                                width: 100px;
+                                margin-right: 35px;
+                            }
+                        }
+                    }
+                }
+                &__short-desc {
+                    margin-top: 100px;
+                    padding-right: 50px;
+                    & > h5 {
+                        @include text(11px, Arial, 100%, 1px);
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        margin-bottom: 30px;
+                    }
+                    & > p {
+                        @include text(12px, Arial, 20px, 0);
+                        margin-top: -10px;
+                    }
+                }
+            }
+        }
+        .related-products {
+            &__title {
+                @include box(100%, auto);
+                @include text(18px, e-normal, 100%, 0);
+                margin-top: 100px;
+                margin-bottom: 50px;
+                text-transform: uppercase;
+                text-align: center;
+            }
+            &__list {
+                padding-bottom: 80px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+            }
+        }
+        .contact {
+            margin-bottom: 150px;
+            & > .container {
+                @include flex(flex-start, center, column);
+            }
+            &__title {
+                @include text(18px, e-normal, 100%, 0);
+                margin-top: 50px;
+                margin-bottom: 20px;
+                text-transform: uppercase;
+                text-align: center;
+            }
+            &__desc {
+                @include text(12px, Arial, 20px, 0);
+                width: 100%;
+                margin-top: -10px;
+                margin-bottom: 60px;
+                text-align: center;
+            }
+            &__btn {
+                width: 100%;
+                @include flex(center, center);
+                & .-wrapper {
+                    &:first-child {
+                        margin-right: 10px;
+                    }
+                    & > .btn-square {
+                        width: 120px;
+                    }
+                }
+            }
+        }
+    }
+}

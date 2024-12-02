@@ -1,0 +1,75 @@
+.footer {
+    @include box(100%, 590px);
+    @include flex(center, center);
+    background: $blue-cl;
+    & > .container {
+        position: relative;
+    }
+    &__logo {
+        @include flex(space-between, center);
+        margin-bottom: 55px;
+        &::before,
+        &::after {
+            content: '';
+            width: 40%;
+            height: 0.5px;
+            background: $yellow-hover-cl;
+        }
+    }
+    &__info {
+        @include flex(center, center, column);
+        span {
+            @include text(11px, Arial, 26px, 0.5px);
+            color: $text-white-cl;
+        }
+    }
+    &__scroll-top {
+        @include text(10px, Arial, normal, 2px);
+        color: $text-menu-cl;
+        text-transform: uppercase;
+        margin-right: 10px;
+        position: absolute;
+        bottom: -35px;
+        right: -90px;
+        transform-origin: 0 0;
+        transform: rotate(90deg);
+        cursor: pointer;
+
+        opacity: 0.7;
+        @include transition($t);
+        &::before {
+            content: '';
+            width: 130px;
+            height: 0.5px;
+            background: $yellow-hover-cl;
+            position: absolute;
+            left: -90px;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        &:hover {
+            opacity: 1;
+            @include transition($t);
+        }
+    }
+
+    // Responsive
+    @include xs {
+        &__info {
+            span {
+                @include text(10px, Arial, 26px, 0);
+            }
+        }
+        &__scroll-top {
+            margin-right: 0;
+            bottom: -80px;
+            right: 50%;
+            transform: rotate(0) translateX(50%);
+            opacity: 1;
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+}

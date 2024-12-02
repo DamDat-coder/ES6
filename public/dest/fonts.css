@@ -1,0 +1,64 @@
+/* Elle Baskerville */
+
+@font-face {
+    font-family: "e-normal";
+    src: url("../fonts/ElleBaskerville.woff2") format("woff2"), url("../fonts/ElleBaskerville.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: "e-bi";
+    src: url("../fonts/ElleBaskerville-BoldItalic.woff2") format("woff2"),
+        url("../fonts/ElleBaskerville-BoldItalic.woff") format("woff");
+    font-weight: bold;
+    font-style: italic;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: "e-b";
+    src: url("../fonts/ElleBaskerville-Bold.woff2") format("woff2"),
+        url("../fonts/ElleBaskerville-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: "e-i";
+    src: url("../fonts/ElleBaskerville-Italic.woff2") format("woff2"),
+        url("../fonts/ElleBaskerville-Italic.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: "e-sb";
+    src: url("../fonts/ElleBaskerville-SemiBold.woff2") format("woff2"),
+        url("../fonts/ElleBaskerville-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: "e-sbi";
+    src: url("../fonts/ElleBaskerville-SemiBoldItalic.woff2") format("woff2"),
+        url("../fonts/ElleBaskerville-SemiBoldItalic.woff") format("woff");
+    font-weight: 600;
+    font-style: italic;
+    font-display: fallback;
+}
+
+/* Avernir Heavy*/
+@font-face {
+    font-family: "a-h";
+    src: url("../fonts/AvenirNextLTPro-Heavy.woff2") format("woff2"),
+        url("../fonts/AvenirNextLTPro-Heavy.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+    font-display: fallback;
+}

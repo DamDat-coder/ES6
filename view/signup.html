@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Furnitown</title>
+  <link rel="icon" href="../public/../public/img/favicon.ico" />
+  <meta name="title" content="" />
+  <meta name="description" content="" />
+  <!-- meta facebook -->
+  <meta property="og:locale" content="vi" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Trang chủ" />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:image" content="" />
+
+  <link rel="stylesheet" href="../public/dest/fonts.css" />
+  <link rel="stylesheet" href="../public/dest/style.min.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container-fluid">
+      <nav>
+        <ul id="topbar-menu" >
+          <li><a class="--item" href="?page/home">furnitown</a></li>
+          <li>
+            <a class="--item" href="?page/products">sản phẩm</a>
+          </li>
+          <li>
+            <a class="--item" href="./view/services.html">dịch vụ</a>
+          </li>
+          <li>
+            <a class="--logo" href="?page/home">
+              <img src="./public/img/logo-icon-white.png" alt="logo" />
+            </a>
+          </li>
+          <li>
+            <a class="--item" href="./view/projects.html">dự án</a>
+          </li>
+          <li><a class="--item" href="./view/news.html">tin tức</a></li>
+
+          <!-- <li>
+            <a class="--item" href="?user/login">đăng nhập</a>
+          </li> -->
+          <!-- <li><a class="--item" href="?user/profile">xin chào Đàm Đạt</a></li> -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="contact-page" style="
+        background-image: url('./../public/img/contact-bg.jpg');
+        min-height: 100vh;
+      ">
+    <div class="main__header">
+      <a href="/?page/home">
+        <span>furnitown</span>
+      </a>
+      <a href="#">
+        <span>share</span>
+      </a>
+      <a href="#">
+        <img src="../public/img/right-arrow.svg" alt="right-arrow-icon" />
+      </a>
+    </div>
+    <aside class="main__sidebar-btn">
+      <div class="main__sidebar-btn--initial">
+        <img src="../public/img/logo-icon.png" alt="logo" />
+        <div class="--ham-btn">
+          <span></span>
+        </div>
+      </div>
+      <div class="main__sidebar-btn--hover">
+        <div class="--wrapper">
+          <span>menu</span>
+          <div class="--logo">
+            <img src="../public/img/logo-menu-hover.png" alt="logo-menu-hover" />
+          </div>
+        </div>
+      </div>
+    </aside>
+    <aside class="sidebar">
+      <div class="sidebar__top">
+        <span>furnitown</span>
+        <div class="sidebar__top-media">
+          <span>follow us</span>
+          <a href="#">
+            <img src="../public/img/email-icon.png" alt="email-icon" />
+          </a>
+          <a href="#">
+            <img src="../public/img/facebook-icon.png" alt="email-icon" />
+          </a>
+        </div>
+      </div>
+      <div class="sidebar__middle">
+        <div class="sidebar__middle-logo">
+          <i>
+            <img src="../public/../public/img/logo-icon.png" alt="logo-icon" />
+          </i>
+          <div class="-close"></div>
+        </div>
+        <div class="sidebar__middle-menu">
+          <a href="/?page/home">furnitown</a>
+          <a href="./product.html">sản phẩm</a>
+          <a href="./services.html">dịch vụ</a>
+          <a href="./projects.html">dự án</a>
+          <a href="?user/login">Người dùng</a>
+          <div class="-footer">
+            <a href="#">faqs</a>
+            <a href="news.html">tin tức</a>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div class="main__backdrop"></div>
+    <!-- content -->
+    <div class="content">
+      <div class="container">
+        <div class="login-form" style="
+    width: 60%;
+    margin: 0 auto;
+    height: 450px;
+    backdrop-filter: blur(20px);
+    border: 1px solid #7a7a7a;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+">
+  <h2 style="
+    font-size: 20px;
+    color: white;
+    font-weight: 650;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+  ">Đăng Ký</h2>
+
+  <form id="fromSignup" style="width: 80%; display: flex; flex-direction: column; align-items: flex-start;">
+    <div class="form-group" style="width: 100%; margin-bottom: 15px;">
+      <label for="fullName" style="color: white; font-size: 14px; font-family: Arial, sans-serif; display: block; margin-bottom: 5px;">Tên người dùng:</label>
+      <input type="text" id="fullName" autocomplete="current-password" style="
+        width: 100%;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        box-sizing: border-box;
+      " />
+    </div>
+
+    <div class="form-group" style="width: 100%; margin-bottom: 15px;">
+      <label for="email" style="color: white; font-size: 14px; font-family: Arial, sans-serif; display: block; margin-bottom: 5px;">Email:</label>
+      <input type="email" id="email" autocomplete="current-password" style="
+        width: 100%;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        box-sizing: border-box;
+      " />
+    </div>
+
+    <div class="form-group" style="width: 100%; margin-bottom: 20px;">
+      <label for="password" style="color: white; font-size: 14px; font-family: Arial, sans-serif; display: block; margin-bottom: 5px;">Mật khẩu:</label>
+      <input type="password" id="password" autocomplete="current-password" style="
+        width: 100%;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        box-sizing: border-box;
+      " />
+    </div>
+
+    <button type="submit" style="
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+    ">Đăng Ký</button>
+  </form>
+  <a style="margin-top: 30px;color: white;" href="?user/login">Đã có tài khoản! Đăng nhập ngay</a>
+</div>
+
+<script>
+  document.getElementById("fromSignup").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    document.querySelectorAll(".error").forEach(e => e.remove());
+
+    const fullName = document.getElementById("fullName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    let hasError = false;
+
+    if (fullName === "") {
+      showError("fullName", "Tên người dùng không được để trống");
+      hasError = true;
+    }
+
+    if (email === "") {
+      showError("email", "Email không được để trống");
+      hasError = true;
+    } else if (!validateEmail(email)) {
+      showError("email", "Email không đúng định dạng");
+      hasError = true;
+    }
+
+    if (password === "") {
+      showError("password", "Mật khẩu không được để trống");
+      hasError = true;
+    } else if (password.length < 6) {
+      showError("password", "Mật khẩu phải có ít nhất 6 ký tự");
+      hasError = true;
+    }
+
+    if (!hasError) {
+      document.getElementById("fromSignup").submit();
+    }
+  });
+
+  function showError(inputId, message) {
+    const inputElement = document.getElementById(inputId);
+    const errorElement = document.createElement("span");
+    errorElement.className = "error";
+    errorElement.style.color = "red";
+    errorElement.style.fontSize = "12px";
+    errorElement.innerText = message;
+    inputElement.parentNode.appendChild(errorElement);
+  }
+
+    function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+</script>
+
+      </div>
+    </div>
+  </main>
+  <!-- <footer class="footer">
+    <div class="container">
+      <div class="footer__logo">
+        <img src="../public/img/logo-full.png" alt="logo-full" />
+      </div>
+      <div class="footer__info">
+        <span>Thời gian mở cửa: 8h - 18h - Thứ 2 đến Chủ nhật</span>
+        <span>Số 7/22A, Ấp 6, xã Đông Thạnh, huyện Hóc Môn, thành phố Hồ Chí
+          Minh</span>
+        <span>Hotline: 0937.168.938</span>
+        <span>Email: noithatfunitown@gmail.com</span>
+      </div>
+      <div class="footer__scroll-top">back to top</div>
+    </div>
+  </footer> -->
+  <!-- JS -->
+  <script src="dest/jsmain.min.js"></script>
+  <script src="dest/jquerymain.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+// css navigator (Menu)
+nav {
+    @include box(100%);
+    ul {
+        @include box(100%);
+        @include flex(center, center);
+        li {
+            height: 100%;
+            @include flex(center, center);
+            a {
+                line-height: 100%;
+                text-align: center;
+            }
+            .--item {
+                display: block;
+                @include text(11px, Arial, 100%, normal);
+                font-weight: bold;
+                text-transform: uppercase;
+                color: $text-menu-cl;
+                // padding: 0 10px;
+                width: 110px;
+                max-width: 110px;
+            }
+            .--logo {
+                @include flex(center, center);
+                width: 150px;
+            }
+        }
+    }
+    @include md {
+        @include box(100%);
+        ul {
+            @include box(100%);
+            @include flex(center, center);
+            li {
+                height: 100%;
+                @include flex(center, center);
+                a {
+                    line-height: 100%;
+                    text-align: center;
+                }
+                .--item {
+                    display: block;
+                    @include text(11px, Arial, 100%, normal);
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    color: $text-menu-cl;
+                    // padding: 0 10px;
+                    width: 100px;
+                    max-width: 100px;
+                }
+                .--logo {
+                    @include flex(center, center);
+                    width: 150px;
+                }
+            }
+        }
+    }
+}

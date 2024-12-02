@@ -1,0 +1,106 @@
+.contact-page {
+    @include box(100vw, auto);
+    overflow: hidden;
+    .content {
+        margin-top: 160px;
+        .container {
+            @include flex(center, flex-start);
+        }
+        & .-left,
+        & .-right {
+            width: 50%;
+        }
+
+        & .-left {
+            & > .-wrapper {
+                width: 315px;
+            }
+        }
+        & .-right {
+            // width: 100%;
+            @include flex(flex-start, flex-start, column);
+            & .-top {
+                width: 100%;
+                @include flex(flex-start, flex-start);
+                & .-wrapper {
+                    &:first-child {
+                        margin-right: 90px;
+                    }
+                }
+            }
+            & .-bottom {
+                margin-top: 30px;
+                & .-wrapper {
+                    max-width: 325px;
+                }
+            }
+        }
+
+        &__box {
+            h2 {
+                @include text(12px, Arial, 100%, 0);
+                font-weight: bold;
+                color: $text-yellow-cl;
+                margin-bottom: 30px;
+                text-transform: uppercase;
+            }
+            p {
+                @include text(12px, Arial, 22px, 1px);
+                color: $text-white-cl;
+            }
+        }
+    }
+
+    @include xs {
+        @include box(100vw, auto);
+        overflow: hidden;
+        .content {
+            margin-top: 160px;
+            .container {
+                @include flex(flex-start, center, column);
+            }
+            & .-left,
+            & .-right {
+                width: 100%;
+            }
+
+            & .-left {
+                margin-bottom: 30px;
+                & > .-wrapper {
+                    width: 100%;
+                }
+            }
+            & .-right {
+                @include flex(flex-start, flex-start, column);
+                & .-top {
+                    @include flex(space-between, flex-start);
+                    & .-wrapper {
+                        &:first-child {
+                            margin-right: 90px;
+                        }
+                    }
+                }
+                & .-bottom {
+                    margin-top: 30px;
+                    & .-wrapper {
+                        max-width: 100%;
+                    }
+                }
+            }
+
+            &__box {
+                h2 {
+                    @include text(12px, Arial, 100%, 0);
+                    font-weight: bold;
+                    color: $text-yellow-cl;
+                    margin-bottom: 15px;
+                    text-transform: uppercase;
+                }
+                p {
+                    @include text(12px, Arial, 22px, 1px);
+                    color: $text-white-cl;
+                }
+            }
+        }
+    }
+}
