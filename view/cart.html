@@ -84,60 +84,63 @@
   .checkout-button:hover {
     background-color: #333;
   }
+
   .quantity-controls {
-  display: flex;
-  align-items: center;
-  margin-top: 8px;
-}
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
 
-.quantity-controls button {
-  background-color: #092741; /* Màu nền chính */
-  color: #ffffff;
-  border: none;
-  padding: 5px 10px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
+  .quantity-controls button {
+    background-color: #092741;
+    /* Màu nền chính */
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
 
-.quantity-controls button:hover {
-  background-color: #000000; /* Màu nền khi hover */
-}
+  .quantity-controls button:hover {
+    background-color: #000000;
+    /* Màu nền khi hover */
+  }
 
-.item-quantity {
-  margin: 0 10px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #092741;
-}
+  .item-quantity {
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #092741;
+  }
 
-/* Nút xóa */
-.remove-button {
-  background-color: #092741;
-  color: #ffffff;
-  border: none;
-  padding: 8px 12px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-  margin-left: 10px;
-}
+  /* Nút xóa */
+  .remove-button {
+    background-color: #092741;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+  }
 
-.remove-button:hover {
-  background-color: #000000;
-}
+  .remove-button:hover {
+    background-color: #000000;
+  }
 
-/* Tổng cộng */
-.cart-total {
-  display: flex;
-  justify-content: space-between;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 20px;
-  color: #092741;
-}
+  /* Tổng cộng */
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #092741;
+  }
 </style>
 <main class="main news-detail-page">
   <div class="container2">
@@ -146,9 +149,8 @@
 
     <div class="cart-total">
       <span>Tổng cộng:</span>
-      <span>8,732,000₫</span>
+      <span>0₫</span>
     </div>
-
     <button class="checkout-button">Tiến Hành Thanh Toán</button>
 </main>
 <!-- <footer class="footer">
@@ -175,24 +177,24 @@
     }
   });
   document.querySelector(".render").addEventListener("click", (e) => {
-  const productId = e.target.getAttribute("data-product-id");
-  let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const productId = e.target.getAttribute("data-product-id");
+    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-  if (e.target.classList.contains("increase-btn")) {
-    cartItems = cartItems.map(item => {
-      if (item.id === productId) item.quantity++;
-      return item;
-    });
-  } else if (e.target.classList.contains("decrease-btn")) {
-    cartItems = cartItems.map(item => {
-      if (item.id === productId && item.quantity > 1) item.quantity--;
-      return item;
-    });
-  }
+    if (e.target.classList.contains("increase-btn")) {
+      cartItems = cartItems.map(item => {
+        if (item.id === productId) item.quantity++;
+        return item;
+      });
+    } else if (e.target.classList.contains("decrease-btn")) {
+      cartItems = cartItems.map(item => {
+        if (item.id === productId && item.quantity > 1) item.quantity--;
+        return item;
+      });
+    }
 
-  localStorage.setItem("cart", JSON.stringify(cartItems));
-  renderCartItems(); // Hàm này để render lại giỏ hàng
-});
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    renderCartItems(); // Hàm này để render lại giỏ hàng
+  });
 
 </script>
 </body>

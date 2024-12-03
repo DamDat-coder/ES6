@@ -1,5 +1,5 @@
 import { Database } from "./Database.js";
-let limit = 4
+let limit = 4;
 export class User {
   id;
   email;
@@ -23,9 +23,11 @@ export class User {
   save() {
     Database.updateData(`/users/${this.id}`, this);
   }
-  static async getAll(page) {
+  static async getAll(page, sort = "id") {
     if (page) {
-      return await Database.getData(`/users?_page=${page}&_per_page=${limit}`);
+      return await Database.getData(
+        `/users?_page=${page}&_per_page=${limit}&_sort=${sort}`
+      );
     } else {
       return await Database.getData(`/users`);
     }
@@ -41,5 +43,9 @@ export class User {
 
   delete() {
     Database.deleteData(`/users/${this.id}`);
+  }
+  static async search(keyword) {
+    let data = await Database.getData(`/users`);
+    return data.filter((user) => user.name.includes(keyword));
   }
 }

@@ -1,6 +1,6 @@
+import { Order } from "../model/Order.js";
 import { Product } from "../model/Product.js";
 import { CoreController } from "./CoreController.js";
-
 function formatPrice(price) {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
@@ -34,7 +34,9 @@ export class PageController extends CoreController {
             <span>chi tiết</span>
           </a>
           <br>
-          <a href="#" class="detail-btn add-to-cart-btn" data-product-id="${product.id}">
+          <a href="#" class="detail-btn add-to-cart-btn" data-product-id="${
+            product.id
+          }">
             <i>
               <img src="../public/img/right-arrow.png" alt="right-arrow-icon" />
             </i>  
@@ -42,10 +44,8 @@ export class PageController extends CoreController {
           </a>
         </div>`;
     });
-    
-    
-    
-// 
+
+    //
     document.querySelectorAll(".add-to-cart-btn").forEach((button) => {
       button.addEventListener("click", (e) => {
         e.preventDefault();
@@ -95,11 +95,43 @@ export class PageController extends CoreController {
 
       // Gắn sự kiện cho các nút "Xóa", "Tăng", "Giảm"
       this.setupEventListeners(cartItems);
+
+      const checkoutButton = document.querySelector(".checkout-button");
+      checkoutButton.addEventListener("click", () => {
+        this.handleCheckout(cartItems); // Xử lý thanh toán khi nhấn nút checkout
+      });
     } else {
       const cartContainer = document.querySelector(".cart-container");
       cartContainer.innerHTML =
         "<p>Giỏ hàng của bạn hiện tại chưa có sản phẩm.</p>";
     }
+  }
+
+  handleCheckout(cartItems) {
+    // Lấy userId từ localStorage
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user || !user.id) {
+      alert("Vui lòng đăng nhập để thực hiện thanh toán.");
+      return;
+    }
+
+    const userEmail = user.email;
+    const total = cartItems.reduce((total, item) => {
+      return total + parseFloat(item.price) * item.quantity;
+    }, 0);
+
+    const payData = new Order();
+    payData.productName = cartItems.map(
+      (item) => `${item.name} x ${item.quantity}`
+    );
+
+    payData.userEmail = userEmail;
+    payData.total = total;
+    payData.date = new Date().toLocaleString("sv-SE");
+    payData.save();
+    alert("Thanh toán thành công!");
+    localStorage.removeItem("cart");
+    location.search = "?page/payment";
   }
 
   // Hàm cập nhật tổng tiền trong giỏ hàng
@@ -170,4 +202,44 @@ export class PageController extends CoreController {
     const productController = new ProductController();
     await productController.detail([id]); // Gọi phương thức chi tiết sản phẩm trong ProductController
   }
+
+  async payment() {
+    await this.loadView("payment");
+    let pay_of_user = await Order.getAll();
+  
+    console.log(pay_of_user);
+  
+    const paymentContainer = document.querySelector(".container2");
+    const fragment = document.createDocumentFragment();
+  
+    pay_of_user.forEach((item) => {
+      const payRender = document.createElement("div");
+      payRender.className = "pay_render";
+      payRender.innerHTML = `
+        <div class="id_payment">Mã đơn hàng: ${item.id}</div>
+        <div class="date">Ngày mua hàng: ${item.date}</div>
+        <div class="user_email">Email khách hàng: ${item.userEmail}</div>
+        <div class="item">
+          <div class="title">Sản phẩm đã mua</div>
+          <ul>
+            ${item.productName.map((product) => `<li class="item_name">${product}</li>`).join("")}
+          </ul>
+        </div>
+      `;
+  
+      const cartTotal = document.createElement("div");
+      cartTotal.className = "cart-total";
+      cartTotal.innerHTML = `
+        <span>Tổng cộng:</span>
+        <span>${formatPrice(item.total)}₫</span>
+      `;
+  
+      payRender.appendChild(cartTotal);
+      fragment.appendChild(payRender);
+    });
+  
+    paymentContainer.appendChild(fragment);
+  }
+  
+  
 }

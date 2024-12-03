@@ -75,4 +75,45 @@ export class Product {
       }
     });
   }
+
+  static async countByCategory(category) {
+    // Lấy tất cả các sản phẩm
+    let data = await Database.getData("/products");
+
+    // Lọc các sản phẩm theo category
+    let filteredProducts = data.filter(
+      (product) => product.category === category
+    );
+
+    // Trả về số lượng sản phẩm trong category
+    return filteredProducts.length;
+  }
+  static async getAllDashboard() {
+    try {
+      let products = await Database.getData("/products");
+  
+      // Lấy tất cả danh mục duy nhất từ thuộc tính 'category' trong sản phẩm
+      const categories = [
+        ...new Set(products.map((product) => product.category)),
+      ];
+  
+      // Tính số lượng sản phẩm cho mỗi danh mục
+      const countProductsByCategory = categories.map((category) => {
+        const count = products.filter(
+          (product) => product.category === category
+        ).length;
+        return {
+          category: category,
+          count: count,
+        };
+      });
+  
+      // Trả về kết quả
+      return countProductsByCategory;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return [];  // Trả về mảng rỗng nếu có lỗi
+    }
+  }
+  
 }

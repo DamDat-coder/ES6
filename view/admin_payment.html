@@ -1,0 +1,32 @@
+<main class="content order-page">
+
+  <h1>Danh sách đơn hàng</h1>
+
+  <div class="order_table">
+    <div id="order-head">
+      <div class="table-row header">
+        <div class="table-cell">Mã Đơn Hàng</div>
+        <div class="table-cell">Ngày Mua</div>
+        <div class="table-cell">Email Khách Hàng</div>
+        <div class="table-cell">Sản Phẩm Đã Mua</div>
+        <div class="table-cell">Tổng tiền</div>
+        <div class="table-cell">Hành động</div>
+      </div>
+    </div>
+
+    <div id="order-body">
+
+    </div>
+    <script>
+      document.addEventListener("click", (e) => {
+        if (e.target.classList.contains("edit-btn")) {
+          e.preventDefault();
+          const orderId = e.target.getAttribute("href").split("/").pop();
+          const adminOrderController = new AdminOrderController();
+          adminOrderController.viewDetail(orderId);
+        }
+      });
+
+    </script>
+  </div>
+</main>

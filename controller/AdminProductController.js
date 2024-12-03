@@ -7,11 +7,11 @@ function formatPrice(price) {
 }
 
 export class AdminProductController extends CoreController {
-  async list([page]) {
+  async list([page, sort = "id"]) {
     await this.loadView("admin_product");
 
     if (!page) page = 1;
-    let proList = await Product.getAll(page);
+    let proList = await Product.getAll(page,sort);
     let limit = 4;
     let currentPage = proList.prev == null ? 1 : proList.prev + 1;
 
@@ -74,6 +74,44 @@ Bấm OK để xóa!`);
         }
       });
     });
+
+    if (sort != "id") {
+      sort = document.querySelector(
+        "#sort-by-id"
+      ).href = `?pro/list/${currentPage}/id`;
+    } else {
+      document.querySelector(
+        "#sort-by-id"
+      ).href = `?pro/list/${currentPage}/-id`;
+    }
+
+    if (sort != "name") {
+      sort = document.querySelector(
+        "#sort-by-name"
+      ).href = `?pro/list/${currentPage}/name`;
+    } else {
+      document.querySelector(
+        "#sort-by-name"
+      ).href = `?pro/list/${currentPage}/-name`;
+    }
+    if (sort != "price") {
+      sort = document.querySelector(
+        "#sort-by-price"
+      ).href = `?pro/list/${currentPage}/price`;
+    } else {
+      document.querySelector(
+        "#sort-by-price"
+      ).href = `?pro/list/${currentPage}/-price`;
+    }
+    if (sort != "desc") {
+      sort = document.querySelector(
+        "#sort-by-desc"
+      ).href = `?pro/list/${currentPage}/desc`;
+    } else {
+      document.querySelector(
+        "#sort-by-desc"
+      ).href = `?pro/list/${currentPage}/-desc`;
+    }
   }
   async add() {
     await this.loadView("admin_product_add");
@@ -156,7 +194,8 @@ Không thể tạo với Sản phẩm với tên: ${pro.name} này`);
         pro.price = document.querySelector("#price").value;
 
         // Lấy tên danh mục từ select và gán vào thuộc tính category
-        pro.category = document.querySelector("#category").selectedOptions[0].textContent; // Lấy tên danh mục, không phải id
+        pro.category =
+          document.querySelector("#category").selectedOptions[0].textContent; // Lấy tên danh mục, không phải id
 
         let description = document.querySelector("#description").value;
         if (description.length > 0) {

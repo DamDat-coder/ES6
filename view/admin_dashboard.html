@@ -1,10 +1,77 @@
 <h1>Admin Dashboard</h1>
 
-            <div class="charts">
-                <div class="chart-container">
-                    <canvas id="chart1"></canvas>
-                </div>
-                <div class="chart-container">
-                    <canvas id="chart2"></canvas>
-                </div>
-            </div>
+<!-- Sản phẩm theo danh mục -->
+<div class="dashboard-content">
+    <div class="session">
+        <h2 class="session-title">Sản phẩm theo danh mục</h2>
+        <div class="chart-container">
+            <!-- <canvas id="chart1"></canvas> -->
+            <div id="chart1"></div>
+        </div>
+        <ul class="ul-first-session">
+            <li>Sofa và Ghế <strong id="tk-sofa">0</strong></li>
+            <li>Bàn trà <strong id="tk-ban-tra">0</strong></li>
+            <li>Kệ tivi <strong id="tk-ke-tivi">0</strong></li>
+            <li>Tủ và Kệ <strong id="tk-tu-ke">0</strong></li>
+        </ul>
+    </div>
+
+    <!-- Lượt truy cập gần đây -->
+    <div class="recent-traffic-session">
+        <h2 class="session-title">Lượt truy cập gần đây</h2>
+        <div class="traffic-container">
+            <canvas id="chart2"></canvas>
+        </div>
+    </div>
+
+
+
+    <script>
+        const data = {
+            labels: ['Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy', 'Chủ Nhật'],
+            datasets: [{
+                label: 'Lượt Truy Cập',
+                data: [120, 150, 180, 200, 170, 220, 250],
+                borderColor: '#3e95cd',
+                backgroundColor: 'rgba(62, 149, 205, 0.2)',
+                fill: true,
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Biểu Đồ Lượt Truy Cập Hàng Tuần'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Ngày'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Số Lượt'
+                        }
+                    }
+                }
+            }
+        };
+
+        const ctx = document.getElementById('chart2').getContext('2d');
+        new Chart(ctx, config);
+    </script>
+
+
+</div>

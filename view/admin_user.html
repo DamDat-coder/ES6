@@ -4,15 +4,39 @@
     <div class="addUser">
         <a href="?user/add">Thêm người dùng</a>
     </div>
+    <div class="keyword-container">
+        <label for="keyword" class="keyword-label">Tìm kiếm:</label>
+        <input type="text" id="keyword" class="keyword" placeholder="Nhập từ khóa và Enter để tìm" autocomplete="off">
+        <div id="result-list">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+
 
     <div class="user_table">
         <div id="head">
             <div class="table-row header">
-                <div class="table-cell">ID</div>
-                <div class="table-cell">Tên người dùng</div>
-                <div class="table-cell">Email</div>
-                <div class="table-cell">Vai trò</div>
-                <div class="table-cell">Hành động</div>
+                <div class="table-cell">
+                    ID
+                    <a href="" id="sort-by-id"><i class="fa-solid fa-sort"></i></a>
+                </div>
+                <div class="table-cell">
+                    Tên người dùng
+                    <a href="" id="sort-by-name"><i class="fa-solid fa-sort"></i></a>
+                </div>
+                <div class="table-cell">
+                    Email
+                   <a href="" id="sort-by-email"><i class="fa-solid fa-sort"></i></a> 
+                </div>
+                <div class="table-cell">
+                    Vai trò
+                    <a href="" id="sort-by-role"><i class="fa-solid fa-sort"></i></a>
+                </div>
+                <div class="table-cell">
+                    Hành động
+                </div>
             </div>
         </div>
 
